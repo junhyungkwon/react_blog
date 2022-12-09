@@ -1,2 +1,3 @@
 # react_blog
-blog Project
+
+React를 사용해서 Blog 만들어보기
