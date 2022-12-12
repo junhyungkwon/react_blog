@@ -30,8 +30,16 @@
   width: 100%;
   color: white;
   padding-left: 20px;
+  justify-content:center;
 }
-
+.div{
+  box-sizing: border-box;
+}
+.list{
+  padding-left: 20px;
+  text-align: left;
+  border: 1px solid gray;
+}
 .App-link {
   color: #61dafb;
 }
