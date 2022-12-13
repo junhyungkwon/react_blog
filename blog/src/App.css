@@ -40,6 +40,12 @@
   text-align: left;
   border: 1px solid gray;
 }
+.modal{
+  text-align: left;
+  background-color: #eee;
+  margin-top: 20px;
+  padding: 20px;
+}
 .App-link {
   color: #61dafb;
 }
