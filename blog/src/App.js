@@ -8,6 +8,7 @@ function App() {
   let [글제목, 글제목변경]= useState(['남자 코트 추천','남자 정장 추천','남자 바지 추천']);
   let [좋아요, 좋아요변경]= useState(0);
   let [modal, setModal] = useState(false);
+  
   return (
     <div className="App">
       <div className = "black-nav">
@@ -36,11 +37,10 @@ function App() {
         <p>2월 17일 발행</p>
       </div>
       <div className='list'>
-        <h4 onClick={()=>{setModal(true)}}> {글제목[2]}</h4>
+        <h4 onClick={()=>{setModal(!modal)}}> {글제목[2]}</h4>
         <p>2월 17일 발행</p>
       </div>
 
-     
       {
         modal == true ? <Modal/> : null
       }
@@ -61,6 +61,8 @@ function App() {
       </div>
     )
   }
+
+
 }
 
 export default App;
