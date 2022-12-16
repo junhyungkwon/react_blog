@@ -41,14 +41,12 @@ function App() {
         <p>2월 17일 발행</p>
       </div>  */}
 
-      {
-        modal == true ? <Modal/> : null
-      }
+     
 
 {
         글제목.map(function(a, i){
           return <div className='list' key={i}>
-          <h4> {글제목[i]} 
+          <h4 onClick={()=>{setModal(!modal)}}> {글제목[i]} 
           <span onClick={()=>{
             let copy = [...좋아요]
             copy[i] = copy[i] + 1
@@ -59,6 +57,9 @@ function App() {
         })
       }
     
+    {
+        modal == true ? <Modal  글제목변경={글제목변경} 글제목={글제목} /> : null
+      }
 
     </div>
     
@@ -68,12 +69,15 @@ function App() {
 
     
 
-  function Modal() {
+  function Modal(props) {
     return(
-      <div className='modal'>
-        <h4>제목</h4>
+      <div className='modal' >
+        <h4>{props.글제목[0]}</h4>
         <p>날짜</p>
         <p>상세내용</p>
+        <button onClick={()=>{
+          {props.글제목변경(['여자 코트 추천','남자 정장 추천','남자 바지 추천'])}
+        }}>글수정</button>
       </div>
     )
   }
