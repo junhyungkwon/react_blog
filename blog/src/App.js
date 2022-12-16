@@ -6,7 +6,7 @@ import { useState } from 'react';
 function App() {
   
   let [글제목, 글제목변경]= useState(['남자 코트 추천','남자 정장 추천','남자 바지 추천']);
-  let [좋아요, 좋아요변경]= useState(0);
+  let [좋아요, 좋아요변경]= useState([0,0,0]);
   let [modal, setModal] = useState(false);
   
   return (
@@ -15,7 +15,7 @@ function App() {
         <h4>JUN BLOG</h4>
       </div>
     
-      <div className='list'>
+      {/* <div className='list'>
         <button onClick={()=>{
           let copy = [...글제목];
           copy.sort();
@@ -24,7 +24,7 @@ function App() {
 
 
 
-      <button onClick={()=>{
+       <button onClick={()=>{ 
         let copy = [...글제목];
         copy[0]= '여자 코트 추천';
         글제목변경(copy)
@@ -39,16 +39,32 @@ function App() {
       <div className='list'>
         <h4 onClick={()=>{setModal(!modal)}}> {글제목[2]}</h4>
         <p>2월 17일 발행</p>
-      </div>
+      </div>  */}
 
       {
         modal == true ? <Modal/> : null
       }
+
+{
+        글제목.map(function(a, i){
+          return <div className='list' key={i}>
+          <h4> {글제목[i]} 
+          <span onClick={()=>{
+            let copy = [...좋아요]
+            copy[i] = copy[i] + 1
+            좋아요변경(copy)
+          }}>👍</span>{좋아요[i]}</h4>
+          <p>2월 17일 발행</p>
+        </div>
+        })
+      }
+    
+
     </div>
     
 
   );
-
+      
 
     
 
