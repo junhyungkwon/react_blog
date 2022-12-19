@@ -9,6 +9,7 @@ function App() {
   let [좋아요, 좋아요변경]= useState([0,0,0]);
   let [modal, setModal] = useState(false);
   let [title, settitle] = useState(0);
+  let [입력값, 입력값변경] = useState('');
   
   return (
     <div className="App">
@@ -54,11 +55,14 @@ function App() {
             좋아요변경(copy)
           }}>👍</span>{좋아요[i]}</h4>
           <p>12월 17일 발행</p>
+          <button>삭제</button>
           
         </div>
         })
       }
-    <input onChange={(e)=> {console.log(e.target.value)}}></input>
+    <input onChange={(e)=> {입력값변경(e.target.value)
+    console.log(입력값)}}></input>
+    <button>글 추가</button>
     
     {
         modal == true ? <Modal  title={title} 글제목변경={글제목변경} 글제목={글제목} /> : null
