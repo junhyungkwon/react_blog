@@ -47,16 +47,18 @@ function App() {
 {
         글제목.map(function(a, i){
           return <div className='list' key={i}>
-          <h4 onClick={()=>{setModal(!modal); settitle(i)} }> {글제목[i]} 
-          <span onClick={()=>{
+          <h4 onClick={()=>{;setModal(!modal); settitle(i)} }> {글제목[i]} 
+          <span onClick={(e)=>{ e.stopPropagation();
             let copy = [...좋아요]
             copy[i] = copy[i] + 1
             좋아요변경(copy)
           }}>👍</span>{좋아요[i]}</h4>
-          <p>2월 17일 발행</p>
+          <p>12월 17일 발행</p>
+          
         </div>
         })
       }
+    <input onChange={(e)=> {console.log(e.target.value)}}></input>
     
     {
         modal == true ? <Modal  title={title} 글제목변경={글제목변경} 글제목={글제목} /> : null
@@ -90,3 +92,4 @@ function App() {
 }
 
 export default App;
+
