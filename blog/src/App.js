@@ -60,9 +60,12 @@ function App() {
         </div>
         })
       }
-    <input onChange={(e)=> {입력값변경(e.target.value)
-    console.log(입력값)}}></input>
-    <button>글 추가</button>
+    <input onChange={(e)=> {입력값변경(e.target.value)}}></input>
+    <button onClick={()=>{
+      let copy = [...글제목];
+      copy.unshift(입력값);
+      글제목변경(copy)
+    }}>글 추가</button>
     
     {
         modal == true ? <Modal  title={title} 글제목변경={글제목변경} 글제목={글제목} /> : null
